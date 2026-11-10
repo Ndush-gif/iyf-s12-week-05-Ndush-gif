@@ -242,8 +242,45 @@ window.addEventListener("scroll", () => {
 // Build: Click Counter
 // ============================================
 // Create a counter display and buttons
+let count = 0;
+const counterDisplay = document.createElement("div");
+counterDisplay.textContent = `Count: ${count}`;
+document.body.appendChild(counterDisplay);
+
+const incrementButton = document.createElement("button");
+incrementButton.textContent = "+";
+document.body.appendChild(incrementButton);
+
+const decrementButton = document.createElement("button");
+decrementButton.textContent = "-";
+document.body.appendChild(decrementButton);
+
+const resetButton = document.createElement("button");
+resetButton.textContent = "Reset";
+document.body.appendChild(resetButton);
+
+// Update display function
+function updateDisplay() {
+    counterDisplay.textContent = `Count: ${count}`;
+}
+
 // + button increases count
+incrementButton.addEventListener("click", () => {
+    count++;
+    updateDisplay();
+});
 // - button decreases count
+decrementButton.addEventListener("click", () => {
+    if (count > 0) {
+        count--;
+        updateDisplay();
+    }
+});
 // Reset button sets to 0
-// Count cannot go below 0
+resetButton.addEventListener("click", () => {
+    count = 0;
+    updateDisplay();
+});
+
+
 
