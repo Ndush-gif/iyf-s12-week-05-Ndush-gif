@@ -53,9 +53,7 @@ iyf-s12-week-05-Ndush-gif/
 - Events bubble up from the clicked element to its parents, so one listener on the `ul` can handle every task. In the to-do list the array of tasks is the single source of truth, and `render()` redraws the page from it.
 
 ## Challenges Faced
-- `console.log(element)` showed elements that already had later changes, such as the new link and class names. I learned that it logs a reference to the live element, not a frozen copy.
 - I assumed `.textContent` on `null` would be safe, but it crashes the script, so I now check that the element exists first.
-- TODO: add a real problem you hit while building or testing this project, and how you solved it.
 
 ## Live Demo
 [View Live Demo](https://ndush-gif.github.io/iyf-s12-week-05-Ndush-gif/)
