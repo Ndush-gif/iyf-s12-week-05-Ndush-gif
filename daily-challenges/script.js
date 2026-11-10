@@ -33,8 +33,22 @@ deleteParagraphBtn.addEventListener('click', () => {
 
 // Day 3: Image Remover 🟢
 // Create a button that removes all images from the page.
-
 // Bonus: Toggle between hide/show instead of remove
+const removeImagesBtn = document.getElementById('removeImagesBtn');
+removeImagesBtn.addEventListener('click', () => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => img.remove());
+});
+const toggleImagesBtn = document.getElementById('toggleImagesBtn');
+let imagesVisible = true;
+toggleImagesBtn.addEventListener('click', () => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.style.display = imagesVisible ? 'none' : 'block';
+    });
+    imagesVisible = !imagesVisible;
+});
+
 // Day 4: Content Copier 🟡
 // Create two divs - source and target.
 
