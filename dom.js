@@ -307,13 +307,15 @@ document.addEventListener("click", function(event) {
 });
 
 // Keyboard events
-document.addEventListener("keydown", function(event) {
-    console.log("Key:", event.key);       // "a", "Enter", "Escape"
-    console.log("Code:", event.code);     // "KeyA", "Enter", "Escape"
-    console.log("Shift:", event.shiftKey);
-    console.log("Ctrl:", event.ctrlKey);
-    console.log("Alt:", event.altKey);
+document.addEventListener("click", function (event) {
+    console.log("Target:", event.target);
+    console.log("Current Target:", event.currentTarget);
+    console.log("Type:", event.type);
+    console.log("Position:", event.clientX, event.clientY);
+    // event.preventDefault();   
+    // event.stopPropagation();  
 });
+
 
 //Build: Keyboard Shortcuts
 // Implement these shortcuts:
