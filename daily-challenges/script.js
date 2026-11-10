@@ -51,9 +51,22 @@ toggleImagesBtn.addEventListener('click', () => {
 
 // Day 4: Content Copier 🟡
 // Create two divs - source and target.
-
 // A button copies content from source to target
 // Bonus: Copy on drag and drop
+const sourceDiv = document.getElementById('sourceDiv');
+const targetDiv = document.getElementById('targetDiv');
+const copyContentBtn = document.getElementById('copyContentBtn');
+copyContentBtn.addEventListener('click', () => {
+    targetDiv.innerHTML = sourceDiv.innerHTML;
+});
+targetDiv.addEventListener('dragover', (event) => {
+    event.preventDefault();
+});
+targetDiv.addEventListener('drop', (event) => {
+    event.preventDefault();
+    targetDiv.innerHTML = sourceDiv.innerHTML;
+});
+
 // Day 5: Dark Mode Toggle 🟡
 // Implement a dark mode toggle:
 
