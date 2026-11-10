@@ -396,7 +396,20 @@ document.querySelector("ul").addEventListener("click", function(event) {
 // Build: Delegated Task List Create a task list where:
 
 // Clicking a task toggles "completed" class
+const itemList = document.querySelectorAll(".item");
+itemList.forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("completed");
+    });
+}); 
 
 // Clicking a delete button removes the item
+document.querySelector("#task-list").addEventListener("click", function(event) {
+    if (event.target.classList.contains("delete")) {
+        event.target.parentElement.remove();
+    }
+});
+
 // New tasks can be added
+console.log("Add new tasks by typing in the input and clicking 'Add Task'.");
 // Use ONE event listener on the parent ul
