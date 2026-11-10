@@ -106,6 +106,7 @@ contents[1].classList.toggle("accent");
 //
 // TODO 5  THE INJECTION DEMO — run these two lines and watch:
 const userInput = `<img src="x" onerror="alert('watch out!')">`;
+// To SEE the attack: uncomment the next line, refresh (an alert pops up), then comment it out again.
 // document.getElementById("unsafe").innerHTML = userInput;   // Demonstrates why inserting untrusted HTML is unsafe.
 document.getElementById("safe").textContent = userInput;
 // Use textContent for a user's comment because it displays input as text instead of executing it as HTML.
@@ -114,6 +115,11 @@ document.getElementById("safe").textContent = userInput;
 // ============================================
 // STEP 4 — Task 9.4: create, remove, clone
 // ============================================
+// LIVE vs STATIC: getElementsByTagName is live, querySelectorAll is a snapshot
+const liveParas = document.getElementsByTagName("p");   // live HTMLCollection
+const staticParas = document.querySelectorAll("p");     // static NodeList
+console.log("before:", liveParas.length, staticParas.length); // 3 and 3
+
 // TODO 1  write addNavItem(text, href): creates <li><a class="nav-link" href=…>text</a></li>
 //         and appends it to .nav-list. Use textContent for the text.
 function addNavItem(text, href) {
@@ -132,6 +138,7 @@ addNavItem("Portfolio", "#portfolio");
 const newParagraph = document.createElement("p");
 newParagraph.textContent = "This is the new paragraph, inserted before the article's first paragraph.";
 article.insertBefore(newParagraph, article.querySelector("p"));
+console.log("after:", liveParas.length, staticParas.length);  // 4 and 3 — the live one grew
 
 // TODO 3  clone the first nav li (deep), change its text to "Cloned", prepend it to the list
 const navList = document.querySelector(".nav-list");
@@ -141,6 +148,17 @@ navList.prepend(clonedNavItem);
 
 // TODO 4  remove the footer
 footer.remove();
+
+
+// ============================================
+// SELF-CHECK — open the Console: you should see six ✓ and no ✗
+// ============================================
+check("h1 text changed", h1.textContent === "Cate's DOM Practice");
+check("first link opens in new tab", firstNavLink.target === "_blank" && firstNavLink.rel === "noopener");
+check("data-status added", article.dataset.status === "reviewed");
+check("highlight on first .content", contents[0].classList.contains("highlight"));
+check("nav now has 6 items", document.querySelectorAll("nav li").length === 6);
+check("footer removed", document.querySelector("footer") === null);
 
 
 // ============================================
