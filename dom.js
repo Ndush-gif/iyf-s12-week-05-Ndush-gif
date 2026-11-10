@@ -159,3 +159,90 @@ footer.remove();
 //   git commit -m "Add: create and remove elements"
 //   git push
 // ============================================
+
+// ============================================
+// Lesson 10 Tasks
+// ============================================
+// Task 10.1: Event Listeners 🟢
+// Exercise 1: Basic Events
+
+const button = document.createElement("button");
+button.textContent = "Click Me";
+document.body.appendChild(button);
+
+// Adding event listeners
+button.addEventListener("click", function() {
+    console.log("Button clicked!");
+});
+
+// Arrow function
+button.addEventListener("click", () => {
+    console.log("Clicked again!");
+});
+
+// Named function (can be removed later)
+function handleClick() {
+    console.log("Handled!");
+}
+button.addEventListener("click", handleClick);
+
+// Remove event listener
+button.removeEventListener("click", handleClick);
+
+// Exercise 2: Event Types
+
+// Mouse events
+// element.addEventListener("click", handler);
+// element.addEventListener("dblclick", handler);
+// element.addEventListener("mouseenter", handler);
+// element.addEventListener("mouseleave", handler);
+// element.addEventListener("mousemove", handler);
+
+button.addEventListener("mouseenter", () => console.log("mouse entered"));
+button.addEventListener("mouseleave", () => console.log("mouse left"));
+
+// Keyboard events
+// input.addEventListener("keydown", handler);
+// input.addEventListener("keyup", handler);
+// input.addEventListener("keypress", handler);  // Deprecated
+ button.addEventListener("keydown", (event) => {
+    console.log(`Key down: ${event.key}`);
+});
+button.addEventListener("keyup", (event) => {
+    console.log(`Key up: ${event.key}`);
+});
+
+
+// Form events
+// form.addEventListener("submit", handler);
+// input.addEventListener("focus", handler);
+// input.addEventListener("blur", handler);
+// input.addEventListener("input", handler);     // Real-time changes
+// input.addEventListener("change", handler);    // On blur after change
+nameInput.addEventListener("input", (event) => {
+    console.log(`Input changed: ${event.target.value}`);
+});
+nameInput.addEventListener("change", (event) => {
+    console.log(`Input changed (on blur): ${event.target.value}`);
+});
+
+// Window events
+// window.addEventListener("load", handler);
+// window.addEventListener("resize", handler);
+// window.addEventListener("scroll", handler);
+window.addEventListener("resize", () => {
+    console.log("Window resized");
+});
+window.addEventListener("scroll", () => {
+    console.log("Window scrolled");
+});
+
+// ============================================
+// Build: Click Counter
+// ============================================
+// Create a counter display and buttons
+// + button increases count
+// - button decreases count
+// Reset button sets to 0
+// Count cannot go below 0
+
