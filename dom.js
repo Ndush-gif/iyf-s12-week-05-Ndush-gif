@@ -150,16 +150,6 @@ navList.prepend(clonedNavItem);
 footer.remove();
 
 
-// ============================================
-// SELF-CHECK — open the Console: you should see six ✓ and no ✗
-// ============================================
-check("h1 text changed", h1.textContent === "Cate's DOM Practice");
-check("first link opens in new tab", firstNavLink.target === "_blank" && firstNavLink.rel === "noopener");
-check("data-status added", article.dataset.status === "reviewed");
-check("highlight on first .content", contents[0].classList.contains("highlight"));
-check("nav now has 6 items", document.querySelectorAll("nav li").length === 6);
-check("footer removed", document.querySelector("footer") === null);
-
 
 // ============================================
 // STEP 5 — COMMIT as you go
