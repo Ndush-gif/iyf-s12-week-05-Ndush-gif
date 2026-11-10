@@ -205,10 +205,11 @@ button.addEventListener("mouseleave", () => console.log("mouse left"));
 // input.addEventListener("keydown", handler);
 // input.addEventListener("keyup", handler);
 // input.addEventListener("keypress", handler);  // Deprecated
- button.addEventListener("keydown", (event) => {
+const nameInput = document.getElementById("name");
+nameInput.addEventListener("keydown", (event) => {
     console.log(`Key down: ${event.key}`);
 });
-button.addEventListener("keyup", (event) => {
+nameInput.addEventListener("keyup", (event) => {
     console.log(`Key up: ${event.key}`);
 });
 
