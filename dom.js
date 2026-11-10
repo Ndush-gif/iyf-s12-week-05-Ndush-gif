@@ -350,3 +350,53 @@ document.addEventListener("keydown", function(event) {
     }
     return;
 });
+
+// Task 10.3: Event Bubbling & Delegation 🔴
+// Exercise 1: Understanding Bubbling
+
+document.getElementById("grandparent").addEventListener("click", () => {
+    console.log("Grandparent clicked");
+});
+
+document.getElementById("parent").addEventListener("click", () => {
+    console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+    console.log("Child clicked");
+});
+
+// Click on Child - what order do the logs appear?
+// Answer: Child → Parent → Grandparent (bubbling up)
+
+// Exercise 2: Event Delegation
+
+// closest(), not just matches(): if the clicked li contains a <span> or a <button>, event.target is the span or the button, not the li. event.target.closest("li") walks up to the nearest li — use it whenever the item has anything inside it.
+
+// BAD: Adding listeners to each item
+const items = document.querySelectorAll("li");
+items.forEach(item => {
+    item.addEventListener("click", handleClick);
+});
+// Problem: New items won't have the listener!
+
+// GOOD: Delegate to parent
+document.querySelector("ul").addEventListener("click", function(event) {
+    // Check if clicked element is an li
+    if (event.target.matches("li")) {
+        handleClick(event);
+    }
+    
+    // Or check for a class
+    if (event.target.classList.contains("item")) {
+        handleClick(event);
+    }
+});
+
+// Build: Delegated Task List Create a task list where:
+
+// Clicking a task toggles "completed" class
+
+// Clicking a delete button removes the item
+// New tasks can be added
+// Use ONE event listener on the parent ul

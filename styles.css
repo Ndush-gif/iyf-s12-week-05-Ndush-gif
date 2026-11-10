@@ -83,3 +83,7 @@ button:focus-visible, input:focus-visible {
 }
 
 .hint { margin-top: 1rem; font-size: 0.85rem; color: var(--color-muted); }
+
+#grandparent { padding: 20px; background: #dbeafe; }
+#parent { padding: 20px; background: #bfdbfe; }
+#child { padding: 20px; background: #93c5fd; }
