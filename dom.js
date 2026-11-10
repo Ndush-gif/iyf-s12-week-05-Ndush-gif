@@ -282,5 +282,66 @@ resetButton.addEventListener("click", () => {
     updateDisplay();
 });
 
+// Task 10.2: The Event Object 🟡
 
+// Exercise: Using Event Properties
 
+document.addEventListener("click", function(event) {
+    // The element that was clicked
+    console.log("Target:", event.target);
+    
+    // The element the listener is attached to
+    console.log("Current Target:", event.currentTarget);
+    
+    // Event type
+    console.log("Type:", event.type);
+    
+    // Mouse position
+    console.log("Position:", event.clientX, event.clientY);
+    
+    // Prevent default behavior
+    event.preventDefault();
+    
+    // Stop propagation (bubbling)
+    event.stopPropagation();
+});
+
+// Keyboard events
+document.addEventListener("keydown", function(event) {
+    console.log("Key:", event.key);       // "a", "Enter", "Escape"
+    console.log("Code:", event.code);     // "KeyA", "Enter", "Escape"
+    console.log("Shift:", event.shiftKey);
+    console.log("Ctrl:", event.ctrlKey);
+    console.log("Alt:", event.altKey);
+});
+
+//Build: Keyboard Shortcuts
+// Implement these shortcuts:
+// Ctrl+S: Show "Saved!" alert (prevent actual save dialog)
+document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && event.key === "s") {
+        event.preventDefault();
+        alert("Saved!");
+    }
+});
+
+// Escape: Clear all form inputs
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        const formInputs = document.querySelectorAll("input, textarea");
+        formInputs.forEach(input => {
+            input.value = "";
+        });
+    }
+});
+
+// Ctrl+Enter: Submit form
+document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && event.key === "Enter") {
+        event.preventDefault();
+        const form = document.querySelector("form");
+        if (form) {
+            form.submit();
+        }
+    }
+});
