@@ -323,6 +323,7 @@ document.addEventListener("keydown", function(event) {
         event.preventDefault();
         alert("Saved!");
     }
+    return;
 });
 
 // Escape: Clear all form inputs
@@ -333,6 +334,7 @@ document.addEventListener("keydown", function(event) {
             input.value = "";
         });
     }
+    return;
 });
 
 // Ctrl+Enter: Submit form
@@ -344,4 +346,5 @@ document.addEventListener("keydown", function(event) {
             form.submit();
         }
     }
+    return;
 });
