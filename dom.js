@@ -106,8 +106,8 @@ contents[1].classList.toggle("accent");
 //
 // TODO 5  THE INJECTION DEMO — run these two lines and watch:
 const userInput = `<img src="x" onerror="alert('watch out!')">`;
-//document.getElementById("unsafe").innerHTML = userInput;   // Demonstrates why inserting untrusted HTML is unsafe.
-//document.getElementById("safe").textContent = userInput;
+// document.getElementById("unsafe").innerHTML = userInput;   // Demonstrates why inserting untrusted HTML is unsafe.
+document.getElementById("safe").textContent = userInput;
 // Use textContent for a user's comment because it displays input as text instead of executing it as HTML.
 
 
@@ -130,7 +130,7 @@ addNavItem("Portfolio", "#portfolio");
 
 // TODO 2  create a paragraph and insert it BEFORE the article's first paragraph
 const newParagraph = document.createElement("p");
-newParagraph.textContent = "This is the new paragraph,inserted before the article's first paragraph.";
+newParagraph.textContent = "This is the new paragraph, inserted before the article's first paragraph.";
 article.insertBefore(newParagraph, article.querySelector("p"));
 
 // TODO 3  clone the first nav li (deep), change its text to "Cloned", prepend it to the list
